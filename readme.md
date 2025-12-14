@@ -67,7 +67,7 @@ fluid.ai/
 ### 1️⃣ Clone the Repository
 ```bash
 git clone https://github.com/chimt4chi/fluid.ai.git
-cd task-board
+cd backend
 ```
 
 ### 2. Create Virtual Environment (Recommended)
