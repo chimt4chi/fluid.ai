@@ -1,0 +1,11 @@
+[project]
+name = "fluid.ai"
+version = "0.1.0"
+description = ""
+authors = ["rohitsingh.edu@gmail.com"]
+requires-python = ">=3.11"
+dependencies = [
+    "fastapi>=0.124.4",
+    "pydantic>=2.12.5",
+    "uvicorn>=0.38.0",
+]
