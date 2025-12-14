@@ -190,14 +190,16 @@ def clear_completed_tasks():
 
 
 # ============== Serve Frontend ==============
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+FRONTEND_DIR = os.path.join(BASE_DIR, "..", "frontend", "static")
+
 @app.get("/")
 def serve_frontend():
-    return FileResponse("static/index.html")
+    return FileResponse(os.path.join(FRONTEND_DIR, "index.html"))
 
+if os.path.exists(FRONTEND_DIR):
+    app.mount("/static", StaticFiles(directory=FRONTEND_DIR), name="static")
 
-# Mount static files
-if os.path.exists("static"):
-    app.mount("/static", StaticFiles(directory="static"), name="static")
 
 
 # ============== Health Check ==============
@@ -208,4 +210,6 @@ def health_check():
 
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run(app, host="0.0.0.0", port=8000)
+    import os
+    port = int(os.environ.get("PORT", 8000))
+    uvicorn.run(app, host="0.0.0.0", port=port)

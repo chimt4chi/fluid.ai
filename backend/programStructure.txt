@@ -1,8 +1,0 @@
-fluid.ai/
-├── frontend
-    ├── static/
-          └── index.html
-└── backend
-     ├── main.py
-     ├── requirements.txt
-     └── README.md
